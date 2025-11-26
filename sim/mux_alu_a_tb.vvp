@@ -1,0 +1,60 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision - 12;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2009.vpi";
+S_00000163de922830 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_00000163de9229c0 .scope module, "mux_alu_a_tb" "mux_alu_a_tb" 3 3;
+ .timescale -9 -12;
+v00000163de954590_0 .var "ALUSrcA", 0 0;
+v00000163de954630_0 .net "alu_a", 31 0, L_00000163de9e4060;  1 drivers
+v00000163de9546d0_0 .var "pc_current", 31 0;
+v00000163de954770_0 .var "rs1", 31 0;
+S_00000163de922b50 .scope module, "uut" "mux_alu_a" 3 10, 4 6 0, S_00000163de9229c0;
+ .timescale -9 -12;
+    .port_info 0 /INPUT 32 "rs1";
+    .port_info 1 /INPUT 32 "pc_current";
+    .port_info 2 /INPUT 1 "ALUSrcA";
+    .port_info 3 /OUTPUT 32 "alu_a";
+L_00000163de99c058 .functor BUFT 1, C4<1>, C4<0>, C4<0>, C4<0>;
+L_00000163de954b80 .functor XNOR 1, v00000163de954590_0, L_00000163de99c058, C4<0>, C4<0>;
+v00000163de90b450_0 .net "ALUSrcA", 0 0, v00000163de954590_0;  1 drivers
+v00000163de90c100_0 .net/2u *"_ivl_0", 0 0, L_00000163de99c058;  1 drivers
+v00000163de90c1a0_0 .net *"_ivl_2", 0 0, L_00000163de954b80;  1 drivers
+v00000163de90c240_0 .net "alu_a", 31 0, L_00000163de9e4060;  alias, 1 drivers
+v00000163de90c2e0_0 .net "pc_current", 31 0, v00000163de9546d0_0;  1 drivers
+v00000163de9544f0_0 .net "rs1", 31 0, v00000163de954770_0;  1 drivers
+L_00000163de9e4060 .functor MUXZ 32, v00000163de954770_0, v00000163de9546d0_0, L_00000163de954b80, C4<>;
+    .scope S_00000163de9229c0;
+T_0 ;
+    %vpi_call/w 3 18 "$dumpfile", "sim/waves.vcd" {0 0 0};
+    %vpi_call/w 3 19 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000163de9229c0 {0 0 0};
+    %pushi/vec4 20, 0, 32;
+    %store/vec4 v00000163de954770_0, 0, 32;
+    %pushi/vec4 100, 0, 32;
+    %store/vec4 v00000163de9546d0_0, 0, 32;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000163de954590_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000163de954590_0, 0, 1;
+    %delay 10000, 0;
+    %pushi/vec4 200, 0, 32;
+    %store/vec4 v00000163de9546d0_0, 0, 32;
+    %delay 10000, 0;
+    %vpi_call/w 3 37 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "tb/mux_alu_a_tb.sv";
+    "src/mux_alu_a.sv";
