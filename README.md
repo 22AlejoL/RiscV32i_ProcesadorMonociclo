@@ -51,11 +51,12 @@ Importar los archivos SystemVerilog desde src/
 
 Asignar pines:
 
-CLOCK_50 → clock principal
-LEDR[7:0] → PC actual
-HEX0–HEX5 → instrucción o valor ALU
-Compilar
-Autores
-Jesus David Villamil Angarita
-Bernardo Castaño Silva
-Alejandro Loaiza Palacio
+- CLOCK_50 → clock principal
+- LEDR[7:0] → PC actual
+- HEX0–HEX5 → instrucción o valor ALU
+- Compilar
+  
+#Autores
+- Jesus David Villamil Angarita
+- Bernardo Castaño Silva
+- Alejandro Loaiza Palacio
