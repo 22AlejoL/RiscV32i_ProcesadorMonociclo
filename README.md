@@ -14,33 +14,37 @@ Arquitectura monociclo
 Un solo ciclo por instrucción
 Datapath completamente combinacional (excepto PC y memories)
 Soporte de instrucciones
-Incluye las familias:
 
-R-type (ADD, SUB, SLL, SRL, AND, OR, XOR, SLT…)
-I-type (ADDI, LW, JALR…)
-S-type (SW)
-B-type (BEQ, BNE, BLT, BGE…)
-U-type (AUIPC)
-J-type (JAL)
-Componentes implementados
-ALU y ALU Control
-Unidad de control
-Unidad de branch
-Immediate generator
-Register file
-PC y PC Adder
-Instruction Memory (inicializable con MIF)
-Data Memory
-MUXes requeridos (ALU, PC, WB)
-Cómo simular
-Requisitos
-Icarus Verilog
-Wavetrace
-Simulación de la CPU completa
-cd tb
-iverilog -g2012 -o cpu_tb.vvp ../src/*.sv cpu_tb.sv
-vvp cpu_tb.vvp 
-Cómo usar en FPGA (DE1-SoC)
+#Incluye las familias:
+
+- R-type (ADD, SUB, SLL, SRL, AND, OR, XOR, SLT…)
+- I-type (ADDI, LW, JALR…)
+- S-type (SW)
+- B-type (BEQ, BNE, BLT, BGE…)
+- U-type (AUIPC)
+- J-type (JAL)
+  
+#Componentes implementados
+- ALU y ALU Control
+- Unidad de control
+- Unidad de branch
+- Immediate generator
+- Register file
+- PC y PC Adder
+- Instruction Memory (inicializable con MIF)
+- Data Memory
+- MUXes requeridos (ALU, PC, WB)
+
+#Cómo simular
+Requisitos:
+- Icarus Verilog
+- Wavetrace
+- Simulación de la CPU completa
+- cd tb
+- iverilog -g2012 -o cpu_tb.vvp ../src/*.sv cpu_tb.sv
+- vvp cpu_tb.vvp 
+
+#Cómo usar en FPGA (DE1-SoC)
 Abrir el proyecto en quartus
 
 Importar los archivos SystemVerilog desde src/
